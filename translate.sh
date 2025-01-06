@@ -28,7 +28,7 @@ extract_audio() {
 generate_english_subtitles() {
     echo "Generating english subtitles from $5 using model $4"
 
-    "$1/whisper-cli" \
+    "$1/build/bin/whisper-cli" \
         -ovtt -l ja -tr -mc 10 \
         -p "$2" -t "$3" \
         -m "$1/models/ggml-$4.bin" \
@@ -53,7 +53,7 @@ generate_english_subtitles() {
 generate_japanese_subtitles() {
     echo "Generating japanese subtitles from $5 using model $4..."
 
-    "$1/whisper-cli" \
+    "$1/build/bin/whisper-cli" \
         -ovtt -l ja -mc 10 \
         -p "$2" -t "$3" \
         -m "$1/models/ggml-$4.bin" \
@@ -169,7 +169,7 @@ ensure_whisper_cpp() {
 
     if [[ $needs_compile || (! -x "$1/whisper-cli") ]]; then
         echo "Compiling whisper.cpp..."
-        make whisper-cli
+        make
     fi
 
     popd >/dev/null
