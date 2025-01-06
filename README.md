@@ -1,10 +1,13 @@
 # Anime Translation Initiative
 AI-helped transcription and translation, fully offline.
+This project assumes you are using Linux.
 
 ## Quick start
 Ensure you have the dependencies installed:
 - `ffmpeg`, for extracting audio from & overlaying subtitles onto video.
-- `ffsubsync`, for synchronising subtitles to video. Can be skipped with `-s off`, and installed with `pip install ffsubsync`.
+- `ffsubsync`, for synchronising subtitles to video. Can be skipped with `-s off`, and installed with `pip install ffsubsync`.  You may need to create a virtual environment (venv) for installing ffsubsync (if you get `error: externally-managed-environment` while trying to install it.)
+	To create a virtual environment run: `python3 -m venv venv`
+	To activate it run: `source venv/bin/activate`
 - `git`, `make`, a C compiler and a C++ compiler, for downloading and compiling whisper.cpp.
 - `wget` or `curl`, for downloading the models to be used with whisper.cpp.
 
@@ -33,6 +36,12 @@ Options:
                 separate chunks processed in parallel, default 1).
     -t num      Specify the number of threads to use on each processor
                 (default 4).
+```
+Example use:
+```
+source venv/bin/activate
+./translate.sh -o output.mp4 -s small -m large-v3-q5_0 -w ./whisper.cpp -p 1 -t 4 video.mp4
+deactivate 
 ```
 
 ## Manual translation & extra features
