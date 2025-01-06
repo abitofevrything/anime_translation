@@ -37,12 +37,14 @@ Options:
     -t num      Specify the number of threads to use on each processor
                 (default 4).
 ```
-Example use:
+### Example quick start (after installing the dependencies): 
 ```
-source venv/bin/activate
-./translate.sh -o output.mp4 -s small -m large-v3-q5_0 -w ./whisper.cpp -p 1 -t 4 video.mp4
-deactivate 
+./translate.sh -o output.mp4 -s small -m large-v3-q5_0 -p 1 -t 4 video.mp4
 ```
+Here, the `input_file` is video.mp4 and is in the same directory as ./translate.sh
+
+
+#### I personally haven't tested the things below here. They might need some troubleshooting to get them running. 
 
 ## Manual translation & extra features
 
